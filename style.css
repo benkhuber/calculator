@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    border: solid red 2px;
+    display:flex;
+    width: 30rem;
+    height: 30rem;
+    margin: 5rem;
+    flex-direction: column;
+}
+
+.display {
+    border: solid red 2px;
+    flex: 1
+}
+
+.buttons {
+    border: solid red 2px;
+    flex: 3;
+}
