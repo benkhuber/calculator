@@ -40,7 +40,7 @@ for (let i = 0; i < number.length; i++) {
 function printNumber(e) {
     memory.previousOperand = e.target.innerText;
     console.log(memory.previousOperand);
-    document.getElementsByClassName("previous-operand")[0].innerText = memory.previousOperand;
+    document.getElementsByClassName("previous-operand")[0].innerText += memory.previousOperand;
 }
 
 
