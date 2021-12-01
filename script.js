@@ -31,3 +31,17 @@ const memory = {
     currentOperand: '',
     operator: '',
 }
+
+let number = document.getElementsByClassName("number")
+for (let i = 0; i < number.length; i++) {
+    number[i].addEventListener("click", printNumber);
+}
+
+function printNumber(e) {
+    memory.previousOperand = e.target.innerText;
+    console.log(memory.previousOperand);
+    document.getElementsByClassName("previous-operand")[0].innerText = memory.previousOperand;
+}
+
+
+
