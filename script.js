@@ -23,10 +23,11 @@ function operate(operator, a, b) {
     return multiply(a,b);
 } else if (operator === "divide") {
     return divide(a,b);
+    }
 }
+
+const memory = {
+    previousOperand: '',
+    currentOperand: '',
+    operator: '',
 }
-
-
-operate("subtract", 5, 12);
-
-
