@@ -2,22 +2,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom right, rgb(183, 248, 243), rgb(248, 248, 248))
+    background-color: black;
 }
 
 .container {
-    border: solid rgb(109, 33, 116) 10px;
+    border: solid rgb(150, 150, 150) 5px;
     border-radius: 4px;
     padding: 10px;
     display:flex;
     width: 30rem;
-    height: 30rem;
+    height: auto;
     margin: 5rem;
     flex-direction: column;
 }
 
 .displaybox {
-    border: solid rgb(109, 33, 116) 10px;
+    color: white;
+    font-style:italic;
     border-radius: 6px;
     height: 80px;
     margin: 20px;
@@ -38,15 +39,45 @@ body {
 
 .buttons {
     border: solid black 2px;
-    height: 50px;
-    width: 100px;
+    color: white;
+    min-height: 50px;
+    height: auto;
+    width: auto;
     gap: 10px;
     font-size: 20px;
-    
+    border-radius: 4px;    
+    cursor: pointer;
 }
+
+.buttons:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+}
+
 .buttons-container {
     display: grid;
     grid-template-columns: repeat(4, 25%);
     gap: 1px;
 }
 
+.equals {
+    grid-column: 4;
+    grid-row: 4 / span 2;
+    background-color: rgb(255, 153, 0);
+}
+
+.clear-display {
+    grid-column: span 2;
+    background-color: rgb(150, 150, 150);
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.operation {
+    background-color: rgb(255, 153, 0);
+}
+
+.number {
+    background-color: rgb(65, 65, 65);
+}

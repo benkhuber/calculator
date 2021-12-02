@@ -4,34 +4,6 @@ const memory = {
     operator: '',
 }
 
-/* function add(a,b) {
-    return a + b;
-}
-
-function subtract(a,b) {
-    return a - b;
-}
-
-function multiply(a,b) {
-    return a * b;
-}
-
-function divide(a,b) {
-    return a / b;
-}
-
-function operate(operator,a,b) {
-    if (operator === "add") {
-    return add(a,b);
-} else if (operator === "subtract") {
-    return subtract(a,b);
-} else if (operator === "multiply") {
-    return multiply(a,b);
-} else if (operator === "divide") {
-    return divide(a,b);
-    }
-} */
-
 let number = document.getElementsByClassName("number");
 for (let i = 0; i < number.length; i++) {
     number[i].addEventListener("click", printNumber);
@@ -51,14 +23,6 @@ for (let i = 0; i < operation.length; i++) {
 }
 
 function setOperation(e) {
-    if (memory.operator != '') {
-        runOperation();
-        memory.operator= e.target.value;
-        memory.previousOperand = '';
-        console.log("PREVIOUS " + memory.previousOperand)
-        console.log("CURRENT " + memory.currentOperand);
-        console.log("OPERATOR " + memory.operator);
-    } else {
     memory.operator = e.target.value;
     memory.previousOperand = memory.currentOperand;
     memory.currentOperand = '';
@@ -66,7 +30,6 @@ function setOperation(e) {
     console.log("PREVIOUS " + memory.previousOperand)
     console.log("CURRENT " + memory.currentOperand);
     console.log("OPERATOR " + memory.operator);
-    }
 }
 
 let calculate = document.getElementsByClassName("calculate");
@@ -107,7 +70,10 @@ function runOperation() {
         console.log("PREVIOUS " + memory.previousOperand)
         console.log("CURRENT " + memory.currentOperand);
         console.log("OPERATOR " + memory.operator);
+    } else if (memory.operator === '') {
+        document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
     }
+    memory.previousOperand = '';
 }
 
 let clearDisplay = document.getElementsByClassName("clear-display");
@@ -118,6 +84,9 @@ function cleanDisplay() {
     memory.previousOperand = '';
     memory.currentOperand = '';
     document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+    console.log("PREVIOUS " + memory.previousOperand)
+    console.log("CURRENT " + memory.currentOperand);
+    console.log("OPERATOR " + memory.operator);
 }
 
 
