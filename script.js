@@ -62,6 +62,7 @@ let calculate = document.getElementsByClassName("calculate");
 calculate[0].addEventListener("click", runOperation);
 
 function runOperation() {
+    operate()
     
 
 }
