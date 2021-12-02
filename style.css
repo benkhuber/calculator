@@ -2,10 +2,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(to bottom right, rgb(183, 248, 243), rgb(248, 248, 248))
 }
 
 .container {
-    border: solid black 2px;
+    border: solid rgb(109, 33, 116) 10px;
+    border-radius: 4px;
     padding: 10px;
     display:flex;
     width: 30rem;
@@ -15,8 +17,9 @@ body {
 }
 
 .displaybox {
-    border: solid black 10px;
-    flex: 1;
+    border: solid rgb(109, 33, 116) 10px;
+    border-radius: 6px;
+    height: 80px;
     margin: 20px;
     display: flex;
     justify-content: flex-end;
@@ -24,33 +27,26 @@ body {
 }
 
 .previous-operand {
-    border: solid red 2px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 4rem;
 }
 
 .current-operand {
-    border: solid red 2px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 4rem;
 }
 
-button {
+.buttons {
     border: solid black 2px;
-    flex: 1;
-    height: 75px;
-    min-width: 100px;
+    height: 50px;
+    width: 100px;
     gap: 10px;
+    font-size: 20px;
     
 }
-.buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex: 3;
-}
-
-button {
-    font-size: 20px;
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    gap: 1px;
 }
 

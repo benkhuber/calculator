@@ -4,7 +4,7 @@ const memory = {
     operator: '',
 }
 
-function add(a,b) {
+/* function add(a,b) {
     return a + b;
 }
 
@@ -30,7 +30,7 @@ function operate(operator,a,b) {
 } else if (operator === "divide") {
     return divide(a,b);
     }
-}
+} */
 
 let number = document.getElementsByClassName("number");
 for (let i = 0; i < number.length; i++) {
@@ -40,7 +40,9 @@ for (let i = 0; i < number.length; i++) {
 function printNumber(e) {
     memory.currentOperand += e.target.innerText;
     document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
-    console.log(memory.currentOperand);
+    console.log("PREVIOUS " + memory.previousOperand)
+    console.log("CURRENT " + memory.currentOperand);
+    console.log("OPERATOR " + memory.operator);
 }
 
 let operation = document.getElementsByClassName("operation");
@@ -49,13 +51,22 @@ for (let i = 0; i < operation.length; i++) {
 }
 
 function setOperation(e) {
+    if (memory.operator != '') {
+        runOperation();
+        memory.operator= e.target.value;
+        memory.previousOperand = '';
+        console.log("PREVIOUS " + memory.previousOperand)
+        console.log("CURRENT " + memory.currentOperand);
+        console.log("OPERATOR " + memory.operator);
+    } else {
     memory.operator = e.target.value;
     memory.previousOperand = memory.currentOperand;
     memory.currentOperand = '';
     document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
-    console.log(memory.operator);
-    console.log("current " + memory.currentOperand);
-    console.log("previous " + memory.previousOperand);
+    console.log("PREVIOUS " + memory.previousOperand)
+    console.log("CURRENT " + memory.currentOperand);
+    console.log("OPERATOR " + memory.operator);
+    }
 }
 
 let calculate = document.getElementsByClassName("calculate");
@@ -63,17 +74,39 @@ calculate[0].addEventListener("click", runOperation);
 
 function runOperation() {
     if (memory.operator === "add") {
-        memory.currentOperand = parseInt(memory.previousOperand) + parseInt(memory.currentOperand);
+        memory.currentOperand = parseFloat(memory.previousOperand) + parseFloat(memory.currentOperand);
         document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+        console.log("PREVIOUS " + memory.previousOperand)
+        console.log("CURRENT " + memory.currentOperand);
+        console.log("OPERATOR " + memory.operator);
+
     } else if (memory.operator === "subtract") {
-        memory.currentOperand = parseInt(memory.previousOperand) - parseInt(memory.currentOperand);
+        memory.currentOperand = parseFloat(memory.previousOperand) - parseFloat(memory.currentOperand);
         document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
-    } else if (memory.operator === "divide") {
-        memory.currentOperand = parseInt(memory.previousOperand) / parseInt(memory.currentOperand);
+        console.log("PREVIOUS " + memory.previousOperand)
+        console.log("CURRENT " + memory.currentOperand);
+        console.log("OPERATOR " + memory.operator);
+
+    } else if (memory.operator === "divide" && memory.currentOperand != "0") {
+        memory.currentOperand = parseFloat(memory.previousOperand) / parseFloat(memory.currentOperand);
         document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+        console.log("PREVIOUS " + memory.previousOperand)
+        console.log("CURRENT " + memory.currentOperand);
+        console.log("OPERATOR " + memory.operator);
+        
+    } else if (memory.currentOperand === "0") {
+        alert("You cannot divide by 0");
+        cleanDisplay();
+        console.log("PREVIOUS " + memory.previousOperand)
+        console.log("CURRENT " + memory.currentOperand);
+        console.log("OPERATOR " + memory.operator);
+
     } else if (memory.operator === "multiply") {
-        memory.currentOperand = parseInt(memory.previousOperand) * parseInt(memory.currentOperand);
+        memory.currentOperand = parseFloat(memory.previousOperand) * parseFloat(memory.currentOperand);
         document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+        console.log("PREVIOUS " + memory.previousOperand)
+        console.log("CURRENT " + memory.currentOperand);
+        console.log("OPERATOR " + memory.operator);
     }
 }
 
@@ -85,9 +118,10 @@ function cleanDisplay() {
     memory.previousOperand = '';
     memory.currentOperand = '';
     document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
-    console.log(memory.operator);
-    console.log("current " + memory.currentOperand);
-    console.log("previous " + memory.previousOperand);
 }
 
 
+
+/* if (memory.currentOperand.toString().length > 9) {
+    document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand.toFixed(8);
+    console.log(typeof(memory.currentOperand)) */
