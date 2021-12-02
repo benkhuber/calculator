@@ -1,3 +1,9 @@
+const memory = {
+    previousOperand: '',
+    currentOperand: '',
+    operator: '',
+}
+
 function add(a,b) {
     return a + b;
 }
@@ -14,7 +20,7 @@ function divide(a,b) {
     return a / b;
 }
 
-function operate(operator, a, b) {
+function operate(operator,a,b) {
     if (operator === "add") {
     return add(a,b);
 } else if (operator === "subtract") {
@@ -26,21 +32,38 @@ function operate(operator, a, b) {
     }
 }
 
-const memory = {
-    previousOperand: '',
-    currentOperand: '',
-    operator: '',
-}
-
-let number = document.getElementsByClassName("number")
+let number = document.getElementsByClassName("number");
 for (let i = 0; i < number.length; i++) {
     number[i].addEventListener("click", printNumber);
 }
 
 function printNumber(e) {
-    memory.previousOperand = e.target.innerText;
-    console.log(memory.previousOperand);
-    document.getElementsByClassName("previous-operand")[0].innerText += memory.previousOperand;
+    memory.currentOperand += e.target.innerText;
+    document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+    console.log(memory.currentOperand);
+}
+
+let operation = document.getElementsByClassName("operation");
+for (let i = 0; i < operation.length; i++) {
+    operation[i].addEventListener("click", setOperation);
+}
+
+function setOperation(e) {
+    memory.operator = e.target.value;
+    memory.previousOperand = memory.currentOperand;
+    memory.currentOperand = '';
+    document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+    console.log(memory.operator);
+    console.log("current" + memory.currentOperand);
+    console.log("previous" + memory.previousOperand);
+}
+
+let calculate = document.getElementsByClassName("calculate");
+calculate[0].addEventListener("click", runOperation);
+
+function runOperation() {
+    
+
 }
 
 
