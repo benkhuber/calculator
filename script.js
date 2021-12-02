@@ -54,18 +54,40 @@ function setOperation(e) {
     memory.currentOperand = '';
     document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
     console.log(memory.operator);
-    console.log("current" + memory.currentOperand);
-    console.log("previous" + memory.previousOperand);
+    console.log("current " + memory.currentOperand);
+    console.log("previous " + memory.previousOperand);
 }
 
 let calculate = document.getElementsByClassName("calculate");
 calculate[0].addEventListener("click", runOperation);
 
 function runOperation() {
-    operate()
-    
-
+    if (memory.operator === "add") {
+        memory.currentOperand = parseInt(memory.previousOperand) + parseInt(memory.currentOperand);
+        document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+    } else if (memory.operator === "subtract") {
+        memory.currentOperand = parseInt(memory.previousOperand) - parseInt(memory.currentOperand);
+        document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+    } else if (memory.operator === "divide") {
+        memory.currentOperand = parseInt(memory.previousOperand) / parseInt(memory.currentOperand);
+        document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+    } else if (memory.operator === "multiply") {
+        memory.currentOperand = parseInt(memory.previousOperand) * parseInt(memory.currentOperand);
+        document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+    }
 }
 
+let clearDisplay = document.getElementsByClassName("clear-display");
+clearDisplay[0].addEventListener("click", cleanDisplay);
+
+function cleanDisplay() {
+    memory.operator = '';
+    memory.previousOperand = '';
+    memory.currentOperand = '';
+    document.getElementsByClassName("current-operand")[0].innerText = memory.currentOperand;
+    console.log(memory.operator);
+    console.log("current " + memory.currentOperand);
+    console.log("previous " + memory.previousOperand);
+}
 
 
